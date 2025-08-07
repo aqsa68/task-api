@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🗂️ Task Manager API
 
-## Getting Started
+A full-featured Task Management API built with **Next.js (App Router)**, **Prisma ORM**, **PostgreSQL**, and **JWT Authentication**.
 
-First, run the development server:
+Users can register, log in, create and manage task categories and tasks. Each task is associated with a user and a category, with full CRUD operations and secure authentication using JWT tokens.
+
+---
+
+## 🚀 Features
+
+- 🔐 User authentication (Register, Login, Logout) with JWT
+- 🧾 Task category creation (user-specific)
+- ✅ Task creation, filtering, updating, deleting
+- 🔍 Filter tasks by category or completion status
+- 🗃️ PostgreSQL database with Prisma ORM
+- 🛡️ Secure API endpoints (token required for most actions)
+
+---
+
+## 📁 Project Structure
+
+/app
+/api
+/auth → Auth endpoints (register, login, logout)
+/categories → Category CRUD routes
+/tasks → Task CRUD & filtering routes
+/components → Reusable React components
+/lib
+prisma.ts → Prisma Client configuration
+auth.ts → JWT utils
+middleware.ts → Token validation
+/types
+index.ts → TypeScript types
+
+/prisma
+schema.prisma → DB schema
+
+.env → Environment variables
+
+yaml
+Copy code
+
+---
+
+## 🛠️ Tech Stack
+
+- **Next.js (App Router)**
+- **Prisma ORM**
+- **PostgreSQL**
+- **JWT** for authentication
+- **TypeScript**
+
+---
+
+## 🧑‍💻 Getting Started
+
+### 📦 Prerequisites
+
+- Node.js ≥ 18
+- PostgreSQL installed locally or via cloud (e.g. Supabase, Railway)
+- Git installed
+
+### 🔧 Setup Instructions
+
+1. **Clone the repository:**
 
 ```bash
+git clone https://github.com/aqsa68/task-api.git
+cd task-api
+Install dependencies:
+
+bash
+Copy code
+npm install
+Configure environment variables:
+
+Create a .env file:
+
+env
+Copy code
+DATABASE_URL=postgresql://username:password@localhost:5432/taskmanager
+JWT_SECRET=your_super_secret_key
+Set up the database:
+
+bash
+Copy code
+npx prisma migrate dev --name init
+Start the dev server:
+
+bash
+Copy code
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
